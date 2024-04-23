@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KorkiPiłkarskie</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <header th:replace="fragments/header :: ShopHeader"> </header>
+    <div class="main-content">
+        <div class="item" th:each="item: ${items}">
+            <p class="item-name" th:text="${item.name}">
+            </p>
+
+            <img th:src="@{${item.imgURL}}">
+
+            <div>
+                <span>Cena: </span>
+                <span th:text="${item.price}" ></span>
+                <span>zł</span>
+            </div>
+
+            <div>
+        </div>
+
+            <a th:href="@{'/add/'+ ${item.id}}" class="add-btn">Dodaj do koszyka</a>
+        </div>
+
+    </div>
+</body>
+</html>
